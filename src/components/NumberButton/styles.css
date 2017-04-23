@@ -1,0 +1,24 @@
+.button {
+  border: 1px solid black;
+  padding: calc(0.75rem - 1px);
+  border-radius: 3rem;
+  min-width: 3rem;
+  margin: 0.375rem;
+}
+
+.button:focus {
+  outline: none;
+  padding: calc(0.75rem - 4px);
+  border-width: 4px;
+}
+
+.buttoncontent {
+  display: block;
+  height: 1.5rem;
+  text-align: center;
+}
+
+.selected {
+  background: #222;
+  color: #fefefe;
+}
