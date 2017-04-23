@@ -1,6 +1,6 @@
 import findCombination, { removeTwoItemsAndOperate } from 'util/findCombination';
 import { plus, minus, times } from 'util/operations';
-import { PLAYING, START_GAME, SELECT_NUMBER,
+import { PLAYING, START_GAME, SELECT_NUMBER, KILL_SELECTION,
   SELECT_OPERATION, UNDO, REDO, PLUS, MINUS, TIMES, NOT_PLAYING } from './constants';
 
 const operations = [];
@@ -33,6 +33,11 @@ export default function reduce(state = initialState, { type, value } = {}) {
         state: PLAYING,
         roundState: makeNewRound(0, 2),
       });
+    }
+    case KILL_SELECTION: {
+      let { roundState } = state;
+      roundState = Object.assign({}, roundState, { selected: [] });
+      return Object.assign({}, state, { roundState });
     }
     case SELECT_NUMBER: {
       let { roundState } = state;

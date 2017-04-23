@@ -1,4 +1,4 @@
-import { SELECT_NUMBER,
+import { SELECT_NUMBER, KILL_SELECTION,
   SELECT_OPERATION, UNDO, REDO, START_GAME } from './constants';
 
 function makeAction(type, value) {
@@ -18,4 +18,7 @@ export function selectNumber(value) {
 }
 export function startGame() {
   return makeAction(START_GAME);
+}
+export function killSelection() {
+  return makeAction(KILL_SELECTION);
 }

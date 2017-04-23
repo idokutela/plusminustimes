@@ -10,7 +10,7 @@ import IconButton from 'components/IconButton';
 
 import makeStateWrapper from 'wrappers';
 import reducer from './reducer';
-import { undo, redo, selectOperation, selectNumber, startGame } from './actions';
+import { undo, redo, selectOperation, selectNumber, startGame, killSelection } from './actions';
 import { PLUS, MINUS, TIMES, PLAYING } from './constants';
 
 import styles from './styles.css';
@@ -57,7 +57,10 @@ const render = ({
         </div>
       </section>
       <section class={styles.gameContainer}>
-        <div class={classnames(styles.container, state !== PLAYING && styles.startContainer)}>
+        <div
+          class={classnames(styles.container, state !== PLAYING && styles.startContainer)}
+          onClick={e => e.target.tagName === 'DIV' && dispatch(killSelection())}
+        >
           <branch>
             <if test={state !== PLAYING}>
               <button class={styles.startButton} onClick={() => dispatch(startGame())}>

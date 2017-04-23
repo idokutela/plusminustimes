@@ -5,6 +5,7 @@ export const SELECT_NUMBER = Symbol('action/select_number');
 export const SELECT_OPERATION = Symbol('action/select_operation');
 export const UNDO = Symbol('action/undo');
 export const REDO = Symbol('action/redo');
+export const KILL_SELECTION = Symbol('action/killSelection');
 
 export const START_GAME = Symbol('action/start_game');
 export const TICK_TIMER = Symbol('action/tick_timer');
