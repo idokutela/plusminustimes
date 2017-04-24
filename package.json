@@ -12,7 +12,8 @@
     "html-minifier": "^3.4.3",
     "promisify-node": "^0.4.0",
     "redux": "^3.6.0",
-    "thea": "^0.0.8"
+    "thea": "^0.0.8",
+    "thea-wrapper-redux": "^0.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.7",

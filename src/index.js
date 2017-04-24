@@ -1,9 +1,22 @@
+import Store from 'thea-wrapper-redux/Store';
+import view from 'thea';
 import 'thea/types/dom/domKnowledge';
 import Game from 'components/Game';
+import reducer from 'state/reducer';
+import { createStore } from 'redux';
+
 import './styles.css';
 
-export { default } from 'components/Game';
+const store = createStore(reducer);
 
+const render = () => (
+  <Store store={store}>
+    <Game />
+  </Store>
+);
+const App = view(render);
+
+export default App;
 
 /*
  * Mounts the component on a node.
@@ -14,7 +27,7 @@ function mountOnNode(node) {
   }
   // Revive or make new
   const firstNode = (node && node.firstChild && node.firstChild.tagName === 'SECTION' && node.firstChild) || undefined;
-  const inst = Game.call(firstNode);
+  const inst = App.call(firstNode);
 
   // If there is something to revive on, return.
   if (firstNode) return;

@@ -1,10 +1,11 @@
 import view from 'thea';
+import wrap from 'thea-wrapper-redux/wrapper';
+import Store from 'thea-wrapper-redux/Store';
 import StartScreen from 'components/StartScreen';
 import GameScreen from 'components/GameScreen';
 
 import makeStateWrapper from 'wrappers';
 import { PLAYING } from 'state/constants';
-import reducer from 'state/reducer';
 
 
 const render = (attrs) => {
@@ -23,4 +24,4 @@ const render = (attrs) => {
   );
 };
 
-export default makeStateWrapper(reducer)(view(render));
+export default wrap()(view(render));

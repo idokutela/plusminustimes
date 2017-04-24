@@ -7,7 +7,7 @@ describe('findComboTests', function () {
       findCombination(i);
       const [s, ns] = process.hrtime(time);
       const timeInMillis = (s * 1000) + (ns / 1e6);
-      timeInMillis.should.be.lessThan(20);
+      timeInMillis.should.be.lessThan(100);
     }
   });
 });

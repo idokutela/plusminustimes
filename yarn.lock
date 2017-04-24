@@ -4629,6 +4629,12 @@ text-table@~0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
 
+thea-wrapper-redux@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/thea-wrapper-redux/-/thea-wrapper-redux-0.0.1.tgz#390bb14bd3405ed0a53c30f9165dcf0bd439f03a"
+  dependencies:
+    thea "^0.0.8"
+
 thea@^0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/thea/-/thea-0.0.8.tgz#133c1edfbe621223eadcf95b66e2121c3e30af5d"
