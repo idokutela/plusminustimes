@@ -31,7 +31,7 @@ export default function reduce(state = initialState, { type, value } = {}) {
       if (state.state === PLAYING) return state;
       return Object.assign({}, state, {
         state: PLAYING,
-        roundState: makeNewRound(0, 2),
+        roundState: makeNewRound(0, 3),
       });
     }
     case KILL_SELECTION: {

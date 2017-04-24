@@ -13,7 +13,7 @@ body {
   min-width: 100vw;
   min-height: 100vh;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background: #fefefe;
   display: flex;
   flex-direction: column;
@@ -46,7 +46,7 @@ section {
 :global .noscript, :global .loading-message {
   display: none;
 }
-:global .no-js #todoContainer {
+:global .no-js {
   opacity: 0.4;
 }
 :global .no-js .noscript, :global .loading .loading-message {
@@ -63,31 +63,7 @@ section {
   padding: 0.75rem;
 }
 
-:global .description {
-  align-self: center;
-  padding: 1.5rem 0;
-  padding-bottom: 6rem;
-  max-width: 30rem;
-}
-:global .description h1 {
-  font-weight: 200;
-  padding: 0;
-  margin: 0;
-  font-size: 3rem;
-}
-:global .description p {
-  font-weight: 400;
-  padding: 0;
-  margin: 0;
-  font-size: 1.2rem;
-  line-height: 1.25;
-  padding-top: 1.5rem;
-}
-:global .description pre + p {
-  padding-top: 0;
-}
-
-@media (min-width: 64rem) {
+/* @media (min-width: 64rem) {
   body {
     flex-direction: row;
     align-items: center;
@@ -101,4 +77,4 @@ section {
   :global .description {
     height: 100vh;
   }
-}
+} */

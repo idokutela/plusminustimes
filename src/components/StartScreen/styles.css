@@ -1,0 +1,37 @@
+.description {
+  align-self: center;
+  padding: 1.5rem 0;
+  max-width: 30rem;
+}
+.description h1 {
+  font-weight: 200;
+  padding: 0;
+  margin: 0;
+  font-size: 3rem;
+}
+.description p {
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.25;
+  padding-top: 1.5rem;
+}
+.description pre + p {
+  padding-top: 0;
+}
+.startButton {
+  flex: 1;
+}
+.startButton:focus {
+  outline: none;
+}
+.startButtonInt {
+  font-size: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+}

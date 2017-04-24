@@ -40,7 +40,7 @@ const reduceToValue = (array) => {
   return array[0];
 };
 
-export default function findCombination(n, max = 100) {
+export default function findCombination(n, max = 1000) {
   let array;
   let result;
   do {
