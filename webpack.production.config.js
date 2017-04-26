@@ -7,7 +7,7 @@ const path = require('path');
 const Uglify = webpack.optimize.UglifyJsPlugin;
 const Order = webpack.optimize.OccurrenceOrderPlugin;
 
-const base = './webpack.base.config.js';
+const base = path.resolve(__dirname, './webpack.base.config.js');
 
 module.exports = new WebpackConfig()
   .extend(base)

@@ -1,4 +1,5 @@
 import thea from 'thea';
+import classnames from 'classnames';
 import NumberButton from 'components/NumberButton';
 import Plus from 'components/Icons/Plus';
 import Minus from 'components/Icons/Minus';
@@ -13,17 +14,31 @@ import styles from './styles.css';
 /* eslint-disable no-undef, jsx-a11y/no-static-element-interactions */
 const render = ({
   dispatch,
-  roundState: { total, numbers, selected = [] } = {},
+  roundState: { total, numbers, selected = [], done } = {},
+  score,
   undoStack,
   undoStackIndex,
+  timeout,
+  time,
 }) => {
+  const remainingTime = (timeout - time >= 0) ? timeout - time : 0;
+  const minutes = Math.floor(remainingTime / 60);
+  const seconds = remainingTime % 60;
+  const padTwo = n => `00${n}`.slice(-2);
   const disallowOperation = selected.length !== 2 || undefined;
-
   return (<div
     class={styles.container}
     onClick={e => e.target.tagName === 'DIV' && dispatch(killSelection())}
   >
-    <div class={styles.target}>
+    <div class={styles.status}>
+      <div class={styles.score}>
+        Score: {score}
+      </div>
+      <div class={classnames(styles.time, remainingTime < 10 && styles.warning)}>
+        {padTwo(minutes)}:{padTwo(seconds)}
+      </div>
+    </div>
+    <div class={classnames(styles.target, done && styles.done)}>
       {total}
     </div>
     <div class={styles.operations}>

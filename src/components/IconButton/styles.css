@@ -18,6 +18,10 @@
   border-width: 4px;
 }
 
+.button:disabled {
+  opacity: 0.4;
+}
+
 .buttoncontent {
   display: flex;
   height: 1.5rem;

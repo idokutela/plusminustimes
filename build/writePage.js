@@ -36,8 +36,8 @@ module.exports = (outdir, js = 'app.js', css = 'app.css') => {
                 function a() {
                   document.body.parentNode.setAttribute('class', 'loading');
                 }
-                gameContainer.addEventListener('click', a, true);
-                gameContainer.addEventListener('focus', a, true);
+                document.body.addEventListener('click', a, true);
+                document.body.addEventListener('focus', a, true);
               </script>
               <script type="text/javascript" src="${js}"></script>
             </body>

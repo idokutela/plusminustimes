@@ -1,9 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
+const path = require('path');
 const WebpackConfig = require('webpack-config').default;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const base = './webpack.base.config.js';
+const base = path.resolve(__dirname, './webpack.base.config.js');
 
 module.exports = new WebpackConfig()
   .extend(base)

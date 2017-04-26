@@ -3,11 +3,13 @@ import view from 'thea';
 import 'thea/types/dom/domKnowledge';
 import Game from 'components/Game';
 import reducer from 'state/reducer';
+import watchGame from 'state/gameWatcher';
 import { createStore } from 'redux';
 
 import './styles.css';
 
 const store = createStore(reducer);
+watchGame(store, 1000);
 
 const render = () => (
   <Store store={store}>
