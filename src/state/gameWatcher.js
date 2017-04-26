@@ -14,7 +14,7 @@ const fakeStorage = {
  * Watches a game for round completion. After the given time,
  * fires the action to start the next round.
  */
-export default function watchGame(store, timeout = 1000) {
+export default function watchGame(store, timeout = 500) {
   const storage = (typeof window === 'undefined') ? fakeStorage : (window.localStorage || fakeStorage);
   const storedHighscore = Number(storage.getItem('highscore') || 0);
   store.dispatch(setHighscore(storedHighscore));

@@ -1,5 +1,5 @@
 import { SELECT_NUMBER, KILL_SELECTION, ADVANCE_ROUND, TICK,
-  SET_HIGHSCORE,
+  SET_HIGHSCORE, HINT,
   SELECT_OPERATION, UNDO, REDO, START_GAME } from './constants';
 
 function makeAction(type, value) {
@@ -31,4 +31,7 @@ export function tick() {
 }
 export function setHighscore(value) {
   return makeAction(SET_HIGHSCORE, value);
+}
+export function hint() {
+  return makeAction(HINT);
 }

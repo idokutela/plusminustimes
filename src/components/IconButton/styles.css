@@ -37,3 +37,14 @@
   height: 1px;
   opacity: 0.001;
 }
+
+.hint {
+  background-color: #f088c8;
+  color: #fefefe;
+  border-color: #f088c8;
+}
+.selected, .hint.selected {
+  background: #222;
+  color: #fefefe;
+  border-color: #222;
+}

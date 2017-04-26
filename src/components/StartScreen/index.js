@@ -25,9 +25,9 @@ const render = ({ dispatch, score, highscore = 0 }) => (
           <default>
             <h1>Plus Minus Times</h1>
             <p>
-              It seems easy: just combine pairs of numbers
-              with plus, minus or times and achieve the
-              given total. But is it?
+              It seems easy: combine all the numbers
+              and achieve the given total. But when time gets
+              tight, suddenly things get harder…
             </p>
             <p>
               <branch>
@@ -35,7 +35,7 @@ const render = ({ dispatch, score, highscore = 0 }) => (
                   The high score is {highscore}. Can you beat it?
                 </if>
                 <default>
-                  Have a go, and set the record…
+                  Have a go; set the record!
                 </default>
               </branch>
             </p>
@@ -50,7 +50,7 @@ const render = ({ dispatch, score, highscore = 0 }) => (
       </div>
     </section>
     <button class={styles.startButton} onClick={() => dispatch(startGame())}>
-      <div class={styles.startButtonInt}>Start!</div>
+      <div class={styles.startButtonInt}>{score !== undefined ? 'Play again!' : 'Start!' }</div>
     </button>
   </view>
 );

@@ -9,7 +9,7 @@ export const KILL_SELECTION = Symbol('action/killSelection');
 export const ADVANCE_ROUND = Symbol('action/advanceRound');
 export const TICK = Symbol('action/tick');
 export const SET_HIGHSCORE = Symbol('action/sethighscore');
-
+export const HINT = Symbol('action/hint');
 export const START_GAME = Symbol('action/start_game');
 
 export const PLUS = 0;

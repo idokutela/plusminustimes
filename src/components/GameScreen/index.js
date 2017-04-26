@@ -7,14 +7,14 @@ import Times from 'components/Icons/Times';
 import Undo from 'components/Icons/Undo';
 import Redo from 'components/Icons/Redo';
 import IconButton from 'components/IconButton';
-import { killSelection, selectOperation, undo, redo, selectNumber } from 'state/actions';
+import { killSelection, selectOperation, undo, redo, selectNumber, hint as doHint } from 'state/actions';
 import { PLUS, MINUS, TIMES } from 'state/constants';
 import styles from './styles.css';
 
 /* eslint-disable no-undef, jsx-a11y/no-static-element-interactions */
 const render = ({
   dispatch,
-  roundState: { total, numbers, selected = [], done } = {},
+  roundState: { total, numbers, selected = [], done, operation, hint } = {},
   score,
   undoStack,
   undoStackIndex,
@@ -25,7 +25,6 @@ const render = ({
   const minutes = Math.floor(remainingTime / 60);
   const seconds = remainingTime % 60;
   const padTwo = n => `00${n}`.slice(-2);
-  const disallowOperation = selected.length !== 2 || undefined;
   return (<div
     class={styles.container}
     onClick={e => e.target.tagName === 'DIV' && dispatch(killSelection())}
@@ -38,25 +37,32 @@ const render = ({
         {padTwo(minutes)}:{padTwo(seconds)}
       </div>
     </div>
-    <div class={classnames(styles.target, done && styles.done)}>
+    <div
+      class={
+        classnames(styles.target, remainingTime < 10 && styles.warning, done && styles.done)
+      }
+    >
       {total}
     </div>
     <div class={styles.operations}>
       <IconButton
-        disabled={disallowOperation}
         onClick={() => dispatch(selectOperation(PLUS))}
+        hint={Array.isArray(hint) && hint[2] === PLUS}
+        selected={operation === PLUS}
       >
         <Plus />
       </IconButton>
       <IconButton
-        disabled={disallowOperation}
         onClick={() => dispatch(selectOperation(MINUS))}
+        hint={Array.isArray(hint) && hint[2] === MINUS}
+        selected={operation === MINUS}
       >
         <Minus />
       </IconButton>
       <IconButton
-        disabled={disallowOperation}
         onClick={() => dispatch(selectOperation(TIMES))}
+        hint={Array.isArray(hint) && hint[2] === TIMES}
+        selected={operation === TIMES}
       >
         <Times />
       </IconButton>
@@ -65,8 +71,15 @@ const render = ({
       <IconButton
         disabled={undoStackIndex === 0 || undefined}
         onClick={() => dispatch(undo())}
+        hint={hint === 'UNDO'}
       >
         <Undo />
+      </IconButton>
+      <IconButton
+        disabled={(!done || !hint) && undefined}
+        onClick={() => dispatch(doHint())}
+      >
+        <span style={{ fontSize: '1.5rem', lineHeight: '1', textAlign: 'center', width: '1.5rem' }}>?</span>
       </IconButton>
       <IconButton
         disabled={undoStackIndex >= undoStack.length - 1 || undefined}
@@ -81,6 +94,9 @@ const render = ({
           value={value}
           onClick={() => dispatch(selectNumber(key))}
           isSelected={selected.indexOf(key) !== -1}
+          isSuccess={numbers.length === 1 && done}
+          isFailure={numbers.length === 1 && !done}
+          hint={Array.isArray(hint) && (hint[0] === key || hint[1] === key)}
         />
       </each>
     </div>

@@ -17,7 +17,7 @@ const render = () => (
 );
 const App = view(render);
 if (typeof window !== 'undefined') {
-  requestAnimationFrame(() => watchGame(store, 1000));
+  requestAnimationFrame(() => watchGame(store, 250));
 }
 
 export default App;

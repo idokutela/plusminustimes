@@ -22,14 +22,18 @@
   transition: none;
 }
 .done {
-  color: #22ee22;
-  transition: color 0.2s ease-in-out;
+  opacity: 0.01;
+  transition: opacity 0.5s;
 }
 .operations {
   padding: 0.375rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.operationSelected {
+  background: #222;
+  color: #fefefe;
 }
 .numbers {
   display: flex;

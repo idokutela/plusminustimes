@@ -1,15 +1,18 @@
 .button {
-  border: 1px solid black;
-  padding: calc(0.75rem - 1px);
+  background: #222;
+  color: #fefefe;
+  border: none;
+  padding: 0.75rem;
   border-radius: 3rem;
   min-width: 3rem;
   margin: 0.375rem 0.75rem;
 }
 
 .button:focus {
+  border: none;
   outline: none;
-  padding: calc(0.75rem - 4px);
   border-width: 4px;
+  box-shadow: 0px 0px 4px #222;
 }
 
 .buttoncontent {
@@ -22,7 +25,22 @@
   line-height: 1;
 }
 
-.selected {
-  background: #222;
+.selected, .hint.selected {
+  background: #2ac;
+}
+
+.success {
+  opacity: 0.01;
+  transition: opacity 0.5s;
+}
+
+.failure {
+  background-color: #f02222;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.hint {
+  background-color: #f088c8;
   color: #fefefe;
+  transition: color 0.2s, background-color 0.2s;
 }
