@@ -9,7 +9,6 @@ import { createStore } from 'redux';
 import './styles.css';
 
 const store = createStore(reducer);
-watchGame(store, 1000);
 
 const render = () => (
   <Store store={store}>
@@ -17,6 +16,9 @@ const render = () => (
   </Store>
 );
 const App = view(render);
+if (typeof window !== 'undefined') {
+  requestAnimationFrame(() => watchGame(store, 1000));
+}
 
 export default App;
 
