@@ -12,7 +12,7 @@
   border: none;
   outline: none;
   border-width: 4px;
-  box-shadow: 0px 0px 4px #222;
+  box-shadow: 0px 0px 0px 2px #222;
 }
 
 .buttoncontent {
@@ -29,6 +29,10 @@
   background: #2ac;
 }
 
+.selected:focus, .hint.selected:focus {
+  box-shadow: 0px 0px 0px 2px #2ac;
+}
+
 .success {
   opacity: 0.01;
   transition: opacity 0.5s;
@@ -36,11 +40,17 @@
 
 .failure {
   background-color: #f02222;
-  transition: color 0.2s, background-color 0.2s;
+}
+
+.failure:focus {
+  box-shadow: 0px 0px 0px 2px #f02222;
 }
 
 .hint {
   background-color: #f088c8;
   color: #fefefe;
-  transition: color 0.2s, background-color 0.2s;
+}
+
+.hint:focus {
+  box-shadow: 0px 0px 0px 4px #f0888c8;
 }

@@ -44,7 +44,7 @@
   border-color: #f088c8;
 }
 .selected, .hint.selected {
-  background: #222;
+  background: #2ac;
   color: #fefefe;
-  border-color: #222;
+  border-color: #2ac;
 }
